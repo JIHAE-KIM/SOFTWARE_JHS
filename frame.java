@@ -1,4 +1,4 @@
-
+﻿
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -25,7 +25,7 @@ public class frame extends JFrame implements ActionListener {
    private static final long serialVersionUID = 1L;
    private JPanel contentPane, left, bottom;
    private JTextField StudentID, StudentName, StudentDep, PhoneNum;
-   private JButton add;
+   private JButton add, update, delete;
    private JTextArea display;
    private JScrollPane scrollP;
    protected Connection conn = null;
@@ -147,6 +147,16 @@ super("Student Management System");
       add.addActionListener(this);
       add.setBounds(0, 10, 100, 33);
       bottom.add(add);
+
+      delete = new JButton("Delete");
+      delete.addActionListener(this);
+      delete.setBounds(112, 10, 100, 33);
+      bottom.add(delete);
+      
+      update = new JButton("Update");
+      update.addActionListener(this);
+      update.setBounds(224, 10, 100, 33);
+      bottom.add(update);
       
       
    }
@@ -177,6 +187,35 @@ super("Student Management System");
             //conn.close();
             
             
+         }else if(c == delete){
+            String nStudentID = StudentID.getText().trim();
+            if(nStudentID == null || nStudentID.length() ==0)
+               return;
+            stat.executeUpdate("delete from Studentinfo where StudentID ='"+nStudentID+"'");
+            display.setText(""); 
+            display.append("====================================================" +"\n");
+            display.append(" \t 내용이 삭제되었습니다. \n");
+            display.append("====================================================" +"\n");
+         
+            
+         }else if(c ==update){
+            String nStudentID = StudentID.getText().trim();
+            String nStudentName = StudentName.getText().trim();
+            String nStudentDep = StudentDep.getText().trim();
+            String nPhoneNum = PhoneNum.getText().trim();
+   
+               
+            if(nStudentID == null || nStudentID.length() == 0)
+                  return;
+            
+            stat.executeUpdate("update Studentinfo set PhoneNum = '"+nPhoneNum+"' where StudentID= '"+nStudentID+"'");
+            display.setText(""); 
+            display.append("====================================================" +"\n");
+            display.append(" \t 내용이 수정되었습니다.\n ");
+            display.append("====================================================" +"\n");
+            
+         
+         
          }
       }catch (SQLException e1) {
          // TODO Auto-generated catch block
