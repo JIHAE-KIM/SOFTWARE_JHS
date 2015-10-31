@@ -1,4 +1,3 @@
-
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -147,14 +146,11 @@ super("Student Management System");
       add.addActionListener(this);
       add.setBounds(0, 10, 100, 33);
       bottom.add(add);
-<<<<<<< HEAD
 
 	  update = new JButton("Update");
       update.addActionListener(this);
       update.setBounds(224, 10, 100, 33);
       bottom.add(update);
-=======
->>>>>>> f14117a1432e5c94a2cdd0a20f21729d65c60432
       
       
    }
@@ -185,7 +181,17 @@ super("Student Management System");
             //conn.close();
             
             
-<<<<<<< HEAD
+         }else if(c == delete){
+            String nStudentID = StudentID.getText().trim();
+            if(nStudentID == null || nStudentID.length() ==0)
+               return;
+            stat.executeUpdate("delete from Studentinfo where StudentID ='"+nStudentID+"'");
+            display.setText(""); 
+            display.append("====================================================" +"\n");
+            display.append(" \t 내용이 삭제되었습니다. ");
+            display.append("====================================================" +"\n");
+         
+            
          }else if(c ==update){
             String nStudentID = StudentID.getText().trim();
             String nStudentName = StudentName.getText().trim();
@@ -201,30 +207,26 @@ super("Student Management System");
             display.append("====================================================" +"\n");
             display.append(" \t 내용이 수정되었습니다.\n ");
             display.append("====================================================" +"\n");
-            
+        
+         }else if(c == total){
+            rs = stat.executeQuery("select* from Studentinfo order by StudentID");
+            display.setText(""); 
+            display.append("====================================================" +"\n");
+            display.append(" StudentID \t StudentName \t StudentDep \t PhoneNum  \n");
+            display.append("===================================================="+"\n");
+            while(rs.next()){
+               String StudentID = rs.getString(1);
+               String StudentName = rs.getString(2);
+               String StudentDep = rs.getString(3);
+               String PhoneNum = rs.getString(4);
          
-         
-=======
->>>>>>> f14117a1432e5c94a2cdd0a20f21729d65c60432
+               
+               display.append(StudentID+ "\t" +StudentName+ "\t" +StudentDep+  "\t" +PhoneNum+ "\n");
+               System.out.println(StudentID+ "\t" +StudentName+ "\t" +StudentDep+  "\t" +PhoneNum+ "\n");
+            }
          }
       }catch (SQLException e1) {
          // TODO Auto-generated catch block
          e1.printStackTrace();
       }}
-<<<<<<< HEAD
-=======
-   
-   public static void main(String[] args) {
-      EventQueue.invokeLater(new Runnable() {
-         public void run() {
-            try {
-               frame frame = new frame();
-               frame.setVisible(true);
-            } catch (Exception e) {
-               e.printStackTrace();
-            }
-         }
-      });
-   }
->>>>>>> f14117a1432e5c94a2cdd0a20f21729d65c60432
 }
