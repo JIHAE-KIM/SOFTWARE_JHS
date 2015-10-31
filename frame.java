@@ -147,6 +147,7 @@ super("Student Management System");
       add.addActionListener(this);
       add.setBounds(0, 10, 100, 33);
       bottom.add(add);
+<<<<<<< HEAD
 
       delete = new JButton("Delete");
       delete.addActionListener(this);
@@ -157,6 +158,16 @@ super("Student Management System");
       update.addActionListener(this);
       update.setBounds(224, 10, 100, 33);
       bottom.add(update);
+=======
+<<<<<<< HEAD
+
+	  update = new JButton("Update");
+      update.addActionListener(this);
+      update.setBounds(224, 10, 100, 33);
+      bottom.add(update);
+=======
+>>>>>>> f14117a1432e5c94a2cdd0a20f21729d65c60432
+>>>>>>> 6bb0a780737de454bc7ef844a0293a03cba3ec8a
       
       
    }
@@ -187,6 +198,7 @@ super("Student Management System");
             //conn.close();
             
             
+<<<<<<< HEAD
          }else if(c == delete){
             String nStudentID = StudentID.getText().trim();
             if(nStudentID == null || nStudentID.length() ==0)
@@ -198,6 +210,9 @@ super("Student Management System");
             display.append("====================================================" +"\n");
          
             
+=======
+<<<<<<< HEAD
+>>>>>>> 6bb0a780737de454bc7ef844a0293a03cba3ec8a
          }else if(c ==update){
             String nStudentID = StudentID.getText().trim();
             String nStudentName = StudentName.getText().trim();
@@ -216,11 +231,18 @@ super("Student Management System");
             
          
          
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> f14117a1432e5c94a2cdd0a20f21729d65c60432
+>>>>>>> 6bb0a780737de454bc7ef844a0293a03cba3ec8a
          }
       }catch (SQLException e1) {
          // TODO Auto-generated catch block
          e1.printStackTrace();
       }}
+<<<<<<< HEAD
+=======
    
    public static void main(String[] args) {
       EventQueue.invokeLater(new Runnable() {
@@ -234,4 +256,5 @@ super("Student Management System");
          }
       });
    }
+>>>>>>> f14117a1432e5c94a2cdd0a20f21729d65c60432
 }
