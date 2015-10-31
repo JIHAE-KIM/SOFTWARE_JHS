@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+﻿
+>>>>>>> 1933b600ec5f690ae5e75bdcc899d4757c9b9376
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -24,7 +28,7 @@ public class frame extends JFrame implements ActionListener {
    private static final long serialVersionUID = 1L;
    private JPanel contentPane, left, bottom;
    private JTextField StudentID, StudentName, StudentDep, PhoneNum;
-   private JButton add;
+   private JButton add, update, delete;
    private JTextArea display;
    private JScrollPane scrollP;
    protected Connection conn = null;
@@ -147,10 +151,28 @@ super("Student Management System");
       add.setBounds(0, 10, 100, 33);
       bottom.add(add);
 
+      delete = new JButton("Delete");
+      delete.addActionListener(this);
+      delete.setBounds(112, 10, 100, 33);
+      bottom.add(delete);
+      
+      update = new JButton("Update");
+      update.addActionListener(this);
+      update.setBounds(224, 10, 100, 33);
+      bottom.add(update);
+=======
+<<<<<<< HEAD
+
 	  update = new JButton("Update");
       update.addActionListener(this);
       update.setBounds(224, 10, 100, 33);
       bottom.add(update);
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> f14117a1432e5c94a2cdd0a20f21729d65c60432
+>>>>>>> 6bb0a780737de454bc7ef844a0293a03cba3ec8a
+>>>>>>> 1933b600ec5f690ae5e75bdcc899d4757c9b9376
       
       
    }
@@ -181,6 +203,10 @@ super("Student Management System");
             //conn.close();
             
             
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 1933b600ec5f690ae5e75bdcc899d4757c9b9376
          }else if(c == delete){
             String nStudentID = StudentID.getText().trim();
             if(nStudentID == null || nStudentID.length() ==0)
@@ -188,10 +214,20 @@ super("Student Management System");
             stat.executeUpdate("delete from Studentinfo where StudentID ='"+nStudentID+"'");
             display.setText(""); 
             display.append("====================================================" +"\n");
+<<<<<<< HEAD
             display.append(" \t 내용이 삭제되었습니다. ");
             display.append("====================================================" +"\n");
          
             
+=======
+            display.append(" \t 내용이 삭제되었습니다. \n");
+            display.append("====================================================" +"\n");
+         
+            
+=======
+<<<<<<< HEAD
+>>>>>>> 6bb0a780737de454bc7ef844a0293a03cba3ec8a
+>>>>>>> 1933b600ec5f690ae5e75bdcc899d4757c9b9376
          }else if(c ==update){
             String nStudentID = StudentID.getText().trim();
             String nStudentName = StudentName.getText().trim();
@@ -220,10 +256,18 @@ super("Student Management System");
                String StudentDep = rs.getString(3);
                String PhoneNum = rs.getString(4);
          
+<<<<<<< HEAD
                
                display.append(StudentID+ "\t" +StudentName+ "\t" +StudentDep+  "\t" +PhoneNum+ "\n");
                System.out.println(StudentID+ "\t" +StudentName+ "\t" +StudentDep+  "\t" +PhoneNum+ "\n");
             }
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> f14117a1432e5c94a2cdd0a20f21729d65c60432
+>>>>>>> 6bb0a780737de454bc7ef844a0293a03cba3ec8a
+>>>>>>> 1933b600ec5f690ae5e75bdcc899d4757c9b9376
          }
       }catch (SQLException e1) {
          // TODO Auto-generated catch block
