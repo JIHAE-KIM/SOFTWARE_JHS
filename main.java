@@ -6,5 +6,8 @@ public class main {
 		JFrame ui = new frame();
 		ui.setSize(1000, 500);
 		ui.setVisible(true); 
+		
+		
+
 	}
 }
